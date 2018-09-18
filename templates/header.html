@@ -1,0 +1,26 @@
+<header>
+    <div class="title content">
+        <h1><a href="{{ path('default') }}">Tripavor</a></h1>
+        <div class="icons">
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+            <a href="/profile" style="font-size:10pt; margin-right:10px;"><i style="margin-right:5px;" class="fas fa-user"></i> {{ app.user.username }}</a>
+            <a class="btn_header" href="{{ path('fos_user_security_logout') }}">
+                {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+            </a>
+            {% else %}
+            <a class="btn_header" href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+            <a class="btn_header" href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="nav content">
+        <ul>
+            <a href="/"><li id="menu_home">Accueil</li></a>
+            <li id="menu_cat">Categories</li>
+            {% if app.user %}<a href="/profile"><li id="menu_profil">Profil</li></a>{% endif %}
+            <a href="/map"><li id="menu_map">Map</li></a>
+        </ul>
+        <input class="search float-right" placeholder="Search.."></input>
+        {% if app.user %}<a href="/trips/add"><img class="add_trip float-right" src='{{ asset("img/add_picture.png") }}'/></a>{% endif %}
+    </div>
+</header>
