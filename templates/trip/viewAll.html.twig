@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <script>
+        document.getElementById("menu_home").className += "current";
+    </script>
+
+    {% if voyages %}
+        <div style="padding-left: 0;" class="col-md-4">
+            {% for key, voyage in voyages %}
+                {% if key in tab1 %}
+                    {% include 'BlogBundle:Default:voyage_index.html.twig' %}
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div style="padding: 0 7.5px;" class="col-md-4">
+            {% for key, voyage in voyages %}
+                {% if key in tab2 %}
+                    {% include 'BlogBundle:Default:voyage_index.html.twig' %}
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div style="padding-right: 0;" class="col-md-4">
+            {% for key, voyage in voyages %}
+                {% if key in tab3 %}
+                    {% include 'BlogBundle:Default:voyage_index.html.twig' %}
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>Vous n'avez pas encore de voyages enregistrés, ajoutez-en un.</p>
+    {% endif %}
+
+
+{% endblock %}
