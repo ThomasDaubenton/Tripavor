@@ -1,0 +1,39 @@
+<script type="text/javascript">
+  document.getElementById("menu_profil").className += "current";
+</script>
+
+<div class="profil row" style="margin:0 !important">
+
+  <h2>Profil</h2>
+
+  <div style="padding-left:0; padding-top:20px;" class="col-md-6">
+    <div class="article" style="padding:25px;">
+      <div class="fos_user_user_show">
+        <h4>Mes informations</h4>
+        <p>{{ 'profile.show.username'|trans({}, 'FOSUserBundle') }}: <b>{{ user.username }}</b></p>
+        <p>{{ 'profile.show.email'|trans({}, 'FOSUserBundle') }}: <b>{{ user.email }}</b></p>
+        <p>Mot de passe : <b>********</b></p>
+      </div>
+    </div>
+
+    <div class="article" style="padding:25px;">
+      <div class="fos_user_user_show">
+        <h4>Statistiques</h4>
+      </div>
+    </div>
+    <a class="delete_user_btn" href="/deleteUser"><i class="fas fa-exclamation-triangle"></i> Supprimer mon compte <i class="fas fa-exclamation-triangle"></i></a>
+  </div>
+
+  <div style="padding-right:0; padding-top:20px;" class="col-md-6 edit_profile">
+    <div class="article" style="padding:25px 25px 75px 25px;">
+      <h4>Modifier mes informations</h4>
+      {{ render(controller('FOSUserBundle:Profile:edit')) }}
+    </div>
+
+    <div class="article" style="padding:25px 25px 75px 25px;">
+      <h4>Modifier mon mot de passe</h4>
+      {{ render(controller('FOSUserBundle:ChangePassword:ChangePassword')) }}
+    </div>
+  </div>
+
+</div>

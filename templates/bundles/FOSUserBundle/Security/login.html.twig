@@ -1,0 +1,35 @@
+{% extends "bundles/FOSUserBundle/layout.html.twig" %}
+
+{% block fos_user_content %}
+  <div style="width:100%;">
+    <div class="article" id="login_form">
+      <form action="{{ path("fos_user_security_check") }}" method="post">
+
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+
+        <div class="top">
+          <img class="logo" src="{{ asset('img/lock.png') }}"/>
+          <label for="mail">
+            {{ 'security.login.username'|trans({}, 'FOSUserBundle') }}
+            <input type="text" id="username" name="_username" type="text" placeholder="JohnDoe"/>
+          </label>
+          <label for="passpen">
+            {{ 'security.login.password'|trans({}, 'FOSUserBundle') }}
+            <input type="password" id="password" name="_password" required="required" placeholder="***********" />
+          </label>
+        </div>
+        <div class="bottom">
+          <a href="/resetting/request"><p>Mot de passe oublié ?</p></a>
+          <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" />
+        </div>
+      </form>
+    </div>
+  </div>
+
+  {% if error %}
+      <div class="alert alert-danger error_form">
+        Erreur : {{ error }}
+      </div>
+  {% endif %}
+
+{% endblock fos_user_content %}
