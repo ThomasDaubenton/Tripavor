@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping\Index;
 
 /**
  * @ORM\Table(name="country", indexes={@Index(name="search_idx", columns={"alpha2", "alpha3"})})
- * @ORM\Entity(repositoryClass="App\Repository\trip\PaysRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\trip\CountryRepository")
  */
 class Country
 {
