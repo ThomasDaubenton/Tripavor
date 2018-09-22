@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="full-width">
+        <h2> Ajouter un trip </h2>
+        <p> Ajouter un trip en renseignant les principales informations. <br/> Vous pourrez par la suite customiser votre trip en ajoutant des textes, des photos, etc.. </p>
+        <form action="{{ path('createTrip') }}" method="POST" class="fos_user_change_password" enctype="multipart/form-data">
+            <div class="row">
+                <div id="addTrip" class="article col-md-6">
+                    <label for="pays">
+                        Pays
+                        <input type="text" id="pays" name="pays" required="required" />
+                    </label>
+                    <label for="nom">
+                        Nom du trip
+                        <input type="text" id="nom" name="nom" required="required" />
+                    </label>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="dateDebut">
+                                Date de début
+                                <input type="date" id="dateDebut" name="dateDebut" required="required" />
+                            </label>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="dateFin">
+                                Date de fin
+                                <input type="date" id="dateFin" name="dateFin" required="required" />
+                            </label>
+                        </div>
+                    </div>
+                    <label for="desc">
+                        Description
+                        <textarea id="desc" name="desc" required="required"></textarea>
+                    </label>
+                    <label for="desc">
+                        Image principale
+                        <input type="file" id="image" name="image" required="required"></input>
+                    </label>
+                    <input type="submit" value="Ajouter" />
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}
